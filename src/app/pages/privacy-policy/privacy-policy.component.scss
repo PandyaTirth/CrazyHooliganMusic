@@ -1,0 +1,27 @@
+h1::after {
+    right: -85px;
+}
+
+.policyContainer {
+    h4 {
+        color: #402848;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 15px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    ul {
+        padding-left: 20px;
+
+        li {
+            font-size: 14px;
+        }
+    }
+}

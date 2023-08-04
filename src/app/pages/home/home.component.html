@@ -1,0 +1,143 @@
+<div class="homePage main">
+  <div class="pageTitle discoverTitle pt-4 mb-3">
+    <h1>Discover</h1>
+  </div>
+  <owl-carousel-o [options]="discoverCarousel">
+    <ng-container *ngFor="let slide of discoverItems">
+      <ng-template carouselSlide class="discover">
+        <img [src]="slide.discoverImg" [alt]="slide.discoverTitle" />
+        <h4>{{ slide.discoverTitle }}</h4>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <div class="pageTitle newSongsTitle pt-4 mb-3">
+    <h1>New Songs</h1>
+  </div>
+  <div class="row newSongs">
+    <div class="col-md-6 col-12 p-0" *ngFor="let song of songDetails">
+      <div class="song d-flex flex-direction-row align-items-center p-2 m-2"
+        (click)="OpenMusicPlayer(musicPlayer, song)">
+        <img [src]="song.songImg" alt="song.songTitle" height="50" width="50" />
+        <div class="songDetails">
+          <h4>{{ song.songTitle }}</h4>
+          <p>{{ song.songArtist }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pageTitle topTenTitle mt-5 mb-3">
+    <h1>Top #10 this week</h1>
+  </div>
+  <table class="table table-responsive table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">
+          #
+        </th>
+        <th scope="col">Title</th>
+        <th scope="col">Album</th>
+        <th scope="col">Date of Release</th>
+        <th scope="col">
+          Duration
+          <!-- <i class="fa-light fa-clock-three"></i> -->
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topSong of songRanked">
+        <th scope="row">{{ topSong.rank }}</th>
+        <td>
+          <div class="song d-flex flex-direction-row align-items-center gap-3">
+            <img [src]="topSong.songImg" alt="song.songTitle" height="45" width="45" />
+            <div class="songDetails">
+              <h4 (click)="OpenMusicPlayer(musicPlayer, topSong)">
+                {{ topSong.songTitle }}
+              </h4>
+              <p>
+                {{ topSong.songArtist }}
+              </p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <a (click)="AlbumDetails(albumDetails, topSong)" *ngIf="topSong.album != '-'">{{ topSong.album }}</a>
+          <a *ngIf="topSong.album == '-'" style="cursor: default; text-decoration: none">-</a>
+        </td>
+        <td>
+          <p>{{ topSong.releaseDate }}</p>
+        </td>
+        <td>
+          <p>{{ topSong.duration }}</p>
+        </td>
+        <td>
+          <div ngbDropdown class="d-inline-block">
+            <div class="three-dots" id="songOptions" ngbDropdownToggle></div>
+            <div class="songOptions" ngbDropdownMenu aria-labelledby="songOptions">
+              <button ngbDropdownItem>Song Info</button>
+              <button ngbDropdownItem>Go to album</button>
+              <button ngbDropdownItem>Download</button>
+              <button ngbDropdownItem>Add to Playlist</button>
+              <button ngbDropdownItem>Share</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #musicPlayer let-modal>
+  <ang-music-player [audioList]="audioContainer"></ang-music-player>
+</ng-template>
+
+<ng-template #albumDetails let-modal>
+  <!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div> -->
+  <div class="modal-body" *ngFor="let detail of albumContainer">
+    <div class="albumImg">
+      <img class="w-100" src="{{ detail.albumImg }}" alt="" />
+    </div>
+    <h4>{{ detail.albumName }}</h4>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="albumItem">
+        <p>No. of songs</p>
+        <p>{{ detail.songCount }}</p>
+      </div>
+      <div class="albumItem">
+        <p>Duration</p>
+        <p>{{ detail.albumDuration }} mins</p>
+      </div>
+    </div>
+    <div class="albumItem mt-3">
+      <p>Artist</p>
+      <p>{{ detail.artists }}</p>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="albumItem mt-3">
+        <p>Released on</p>
+        <p>{{ detail.releaseDate }}</p>
+      </div>
+      <div class="albumItem mt-3">
+        <p class="text-end">Genre</p>
+        <p>{{ detail.albumGenre }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Close')"
+    >
+      Close
+    </button>
+  </div> -->
+</ng-template>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img [src]="config.logoImg" alt="logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleHeader"
+            aria-controls="toggleHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="toggleHeader">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a [ngClass]="{'active' : navbarTab=='home'}" (click)="navbarTab='home'" class="nav-link"
+                        aria-current="page" [routerLink]="''">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a [ngClass]="{'active' : navbarTab=='playlists'}" (click)="navbarTab='playlists'" class="nav-link"
+                        [routerLink]="'/Playlists'">Playlists</a>
+                </li>
+                <li class="nav-item">
+                    <a [ngClass]="{'active' : navbarTab=='artists'}" (click)="navbarTab='artists'" class="nav-link"
+                        [routerLink]="'/Artists'">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a [ngClass]="{'active' : navbarTab=='genres'}" (click)="navbarTab='genres'" class="nav-link"
+                        [routerLink]="'/Genres'">Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a [ngClass]="{'active' : navbarTab=='contact'}" (click)="navbarTab='contact'" class="nav-link"
+                        [routerLink]="'/Contact'">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

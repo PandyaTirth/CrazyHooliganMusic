@@ -1,0 +1,85 @@
+.main {
+    .pageTitle {
+        h1 {
+            &::after {
+                right: -30px;
+            }
+        }
+    }
+
+    .boxWrapper {
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: linear-gradient(90deg, #ffffff 95%, #d379f3 0);
+
+        @media only screen and (max-width: 992px) {
+            background: linear-gradient(90deg, #ffffff 92%, #d379f3 0);
+        }
+
+        @media only screen and (max-width: 620px) {
+            background: linear-gradient(90deg, #ffffff 87%, #d379f3 0);
+            padding: 20px;
+        }
+
+        .form-group {
+            .form-label {
+                font-weight: 500;
+                color: #402848;
+                font-size: 15px;
+            }
+
+            .form-control {
+                font-size: 14px;
+            }
+        }
+
+        .error {
+            color: #ff0000;
+            font-size: 13px;
+            position: relative;
+
+            div {
+                position: absolute;
+            }
+        }
+
+        .contactInfo {
+            background-color: #402848;
+            padding: 20px;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+
+            @media only screen and (max-width: 992px) {
+                margin-top: 30px;
+            }
+
+            h3 {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 20px;
+            }
+
+            .details {
+                p {
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+    }
+}
+
+.originalPostion {
+    transition: 0.5s ease all;
+    transform: translateX(0px);
+}
+
+.moveLeft {
+    transform: translateX(420px);
+    transition: 0.5s ease all;
+}

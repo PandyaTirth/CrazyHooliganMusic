@@ -1,0 +1,166 @@
+.homePage {
+  .discoverTitle h1::after {
+    right: 0;
+  }
+
+  .newSongsTitle {
+    a {
+      text-decoration: none;
+      color: #212529;
+    }
+
+    h1::after {
+      right: -20px !important;
+    }
+  }
+
+  .topTenTitle {
+    h1::after {
+      right: -130px !important;
+    }
+  }
+
+  .newSongs {
+    .song {
+      background-color: #ffffff;
+      -webkit-box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 13px 24px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+
+      img {
+        margin-right: 20px;
+      }
+
+      .songDetails {
+        h4 {
+          font-size: 18px;
+          margin-bottom: 5px;
+          cursor: pointer;
+        }
+
+        p {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .table {
+    @media only screen and (max-width: 940px) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    --bs-table-bg: #201424;
+    --bs-table-striped-bg: #33203a;
+
+    thead {
+      position: sticky;
+
+      th {
+        &:first-child {
+          text-align: center;
+          border-top-left-radius: 4px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 4px;
+        }
+      }
+    }
+
+    tbody {
+      border: none;
+
+      tr {
+        vertical-align: middle;
+
+        th {
+          text-align: center;
+          border: none;
+        }
+
+        td {
+          border: none;
+
+          p {
+            margin: 0;
+            opacity: 0.6;
+          }
+
+          a {
+            text-decoration: none;
+            color: #ffffff;
+            opacity: 0.6;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          .song {
+            a {
+              opacity: 1;
+
+              img {
+                margin-right: 20px;
+              }
+            }
+
+            .songDetails {
+              h4 {
+                font-size: 16px;
+                margin-bottom: 5px;
+                cursor: pointer;
+              }
+
+              p {
+                font-size: 14px;
+                margin: 0;
+              }
+            }
+          }
+
+          .three-dots {
+            &:after {
+              cursor: pointer;
+              color: #FCC;
+              content: '\2807';
+              font-size: 20px;
+              padding: 0 5px;
+              border: none;
+            }
+          }
+
+          .songOptions {
+            background-color: #402848;
+            border: none;
+          }
+
+          button {
+            color: #ffffff;
+            font-size: 14px;
+
+            &:hover {
+              background-color: #1a101d;
+            }
+          }
+        }
+
+        &:last-child {
+          th {
+            border-bottom-left-radius: 4px;
+          }
+
+          td:last-child {
+            border-bottom-right-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+<div class="main">
+  <div class="pageTitle pt-4 mb-3">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="boxWrapper">
+    <div class="row align-items-center">
+      <div class="col-lg-7 col-xs-12">
+        <form [formGroup]="contactFormGroup" (ngSubmit)="OnSubmit()">
+          <div class="row clearfix">
+            <div class="col-md-6 col-12">
+              <div class="form-group mb-3">
+                <label for="fName" class="form-label">First Name</label>
+                <input type="text" formControlName="fName" class="form-control" id="fName"
+                  placeholder="Enter First Name" />
+                <div *ngIf="
+                    contactForm['fName'].errors &&
+                    (this.contactForm['fName'].touched ||
+                      this.contactForm['fName'].dirty ||
+                      isFormSubmitted)
+                  " ngClass="error">
+                  <div *ngIf="contactForm['fName'].errors?.['required']">
+                    Please enter First Name.
+                  </div>
+                  <div *ngIf="contactForm['fName'].errors?.['pattern']">
+                    Please enter valid First Name.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mb-3">
+                <label for="lName" class="form-label">Last Name</label>
+                <input type="text" formControlName="lName" class="form-control" id="lName"
+                  placeholder="Enter Last Name" />
+                <div *ngIf="
+                    contactForm['lName'].errors &&
+                    (this.contactForm['lName'].touched ||
+                      this.contactForm['lName'].dirty ||
+                      isFormSubmitted)
+                  " ngClass="error">
+                  <div *ngIf="contactForm['lName'].errors?.['required']">
+                    Please enter Last Name.
+                  </div>
+                  <div *ngIf="contactForm['lName'].errors?.['pattern']">
+                    Please enter valid Last Name.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mb-3">
+                <label for="emailId" class="form-label">Email ID</label>
+                <input type="text" formControlName="emailId" class="form-control" id="emailId"
+                  placeholder="Enter Email ID" />
+                <div *ngIf="
+                    contactForm['emailId'].errors &&
+                    (this.contactForm['emailId'].touched ||
+                      this.contactForm['emailId'].dirty ||
+                      isFormSubmitted)
+                  " ngClass="error">
+                  <div *ngIf="contactForm['emailId'].errors?.['required']">
+                    Please enter Email ID.
+                  </div>
+                  <div *ngIf="contactForm['emailId'].errors?.['pattern']">
+                    Please enter valid Email ID.
+                  </div>
+                  <div *ngIf="contactForm['emailId'].errors?.['maxlength']">
+                    Email ID should not be more than 50 characters.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mb-3">
+                <label for="contactNo" class="form-label">Contact No.</label>
+                <input type="text" formControlName="contactNo" class="form-control" id="contactNo"
+                  placeholder="Enter Contact No." />
+                <div *ngIf="
+                    contactForm['contactNo'].errors &&
+                    (this.contactForm['contactNo'].touched ||
+                      this.contactForm['contactNo'].dirty ||
+                      isFormSubmitted)
+                  " ngClass="error">
+                  <div *ngIf="contactForm['contactNo'].errors?.['required']">
+                    Please enter Contact No.
+                  </div>
+                  <div *ngIf="contactForm['contactNo'].errors?.['pattern']">
+                    Please enter valid Contact No.
+                  </div>
+                  <div *ngIf="contactForm['contactNo'].errors?.['maxlength']">
+                    Contact No. should not be more than 10 characters.
+                  </div>
+                  <div *ngIf="contactForm['contactNo'].errors?.['minlength']">
+                    Contact No. should not be less than 10 characters.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea placeholder="Enter your Message" formControlName="message" class="form-control" id="message"
+                  rows="3"></textarea>
+                <div *ngIf="
+                    contactForm['message'].errors &&
+                    (this.contactForm['message'].touched ||
+                      this.contactForm['message'].dirty ||
+                      isFormSubmitted)
+                  " ngClass="error">
+                  <div *ngIf="contactForm['message'].errors?.['required']">
+                    Please enter Message.
+                  </div>
+                  <div *ngIf="contactForm['message'].errors?.['pattern']">
+                    Please enter valid Message.
+                  </div>
+                  <div *ngIf="contactForm['message'].errors?.['maxlength']">
+                    Message should not be more than 250 characters.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [ngClass]="submitBtn ? 'moveLeft' : 'originalPostion'" class="primaryBtn mt-4"
+            (mouseover)="MouseOver()">
+            Submit
+          </button>
+          <!-- <button type="submit" class="primaryBtn mt-4"
+                        [class.invalidBtn]="!this.contactFormGroup.valid">Submit</button> -->
+        </form>
+      </div>
+      <div class="col-lg-5 col-xs-12">
+        <div class="contactInfo">
+          <h3>Contact Info</h3>
+          <div class="details">
+            <div class="d-flex align-items-center gap-3">
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9 16C2.814 9.813 3.11 5.134 5.94 3.012l.627-.467a1.483 1.483 0 0 1 2.1.353l1.579 2.272a1.5 1.5 0 0 1-.25 1.99L8.476 8.474c-.38.329-.566.828-.395 1.301.316.88 1.083 2.433 2.897 4.246 1.814 1.814 3.366 2.581 4.246 2.898.474.17.973-.015 1.302-.396l1.314-1.518a1.5 1.5 0 0 1 1.99-.25l2.276 1.58a1.48 1.48 0 0 1 .354 2.096l-.47.633C19.869 21.892 15.188 22.187 9 16z"
+                  fill="none" stroke="#ffffff" stroke-width="1.5" />
+              </svg>
+              <p>+91 9082674149</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 mt-2">
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="style=stroke">
+                  <g id="email">
+                    <path id="vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M3.88534 5.2371C3.20538 5.86848 2.75 6.89295 2.75 8.5V15.5C2.75 17.107 3.20538 18.1315 3.88534 18.7629C4.57535 19.4036 5.61497 19.75 7 19.75H17C18.385 19.75 19.4246 19.4036 20.1147 18.7629C20.7946 18.1315 21.25 17.107 21.25 15.5V8.5C21.25 6.89295 20.7946 5.86848 20.1147 5.2371C19.4246 4.59637 18.385 4.25 17 4.25H7C5.61497 4.25 4.57535 4.59637 3.88534 5.2371ZM2.86466 4.1379C3.92465 3.15363 5.38503 2.75 7 2.75H17C18.615 2.75 20.0754 3.15363 21.1353 4.1379C22.2054 5.13152 22.75 6.60705 22.75 8.5V15.5C22.75 17.393 22.2054 18.8685 21.1353 19.8621C20.0754 20.8464 18.615 21.25 17 21.25H7C5.38503 21.25 3.92465 20.8464 2.86466 19.8621C1.79462 18.8685 1.25 17.393 1.25 15.5V8.5C1.25 6.60705 1.79462 5.13152 2.86466 4.1379Z"
+                      fill="#ffffff" />
+                    <path id="vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M19.3633 7.31026C19.6166 7.63802 19.5562 8.10904 19.2285 8.3623L13.6814 12.6486C12.691 13.4138 11.3089 13.4138 10.3185 12.6486L4.77144 8.3623C4.44367 8.10904 4.38328 7.63802 4.63655 7.31026C4.88982 6.98249 5.36083 6.9221 5.6886 7.17537L11.2356 11.4616C11.6858 11.8095 12.3141 11.8095 12.7642 11.4616L18.3113 7.17537C18.6391 6.9221 19.1101 6.98249 19.3633 7.31026Z"
+                      fill="#ffffff" />
+                  </g>
+                </g>
+              </svg>
+              <p>crazyhooligan08@gmail.com</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 mt-2">
+              <svg fill="none" stroke="#ffffff" stroke-width="1.5" width="22px" height="22px" viewBox="0 0 32 32"
+                version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <title>location</title>
+                <path
+                  d="M11.163 11.554c0-2.655 2.166-4.807 4.837-4.807s4.837 2.152 4.837 4.807-2.166 4.806-4.837 4.806-4.837-2.152-4.837-4.806zM7.777 12.154c0 2.011 2.454 6.25 2.454 6.25l5.769 9.614 5.438-9.613c0 0 2.785-4.27 2.785-6.25 0-4.513-3.682-8.171-8.223-8.171s-8.223 3.657-8.223 8.17z">
+                </path>
+              </svg>
+              <p>Mumbai-Pune</p>
+            </div>
+            <div class="socialMedia d-flex align-items-center gap-2 mt-4">
+              <a href="#!">
+                <svg width="22px" height="22px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none">
+                  <path stroke="#ffffff" stroke-width="12"
+                    d="M96 162c-14.152 0-24.336-.007-32.276-.777-7.849-.761-12.87-2.223-16.877-4.741a36 36 0 0 1-11.33-11.329c-2.517-4.007-3.98-9.028-4.74-16.877C30.007 120.336 30 110.152 30 96c0-14.152.007-24.336.777-32.276.76-7.849 2.223-12.87 4.74-16.877a36 36 0 0 1 11.33-11.33c4.007-2.517 9.028-3.98 16.877-4.74C71.663 30.007 81.847 30 96 30c14.152 0 24.336.007 32.276.777 7.849.76 12.87 2.223 16.877 4.74a36 36 0 0 1 11.329 11.33c2.518 4.007 3.98 9.028 4.741 16.877.77 7.94.777 18.124.777 32.276 0 14.152-.007 24.336-.777 32.276-.761 7.849-2.223 12.87-4.741 16.877a36 36 0 0 1-11.329 11.329c-4.007 2.518-9.028 3.98-16.877 4.741-7.94.77-18.124.777-32.276.777Z" />
+                  <circle cx="96" cy="96" r="30" stroke="#ffffff" stroke-width="12" />
+                  <circle cx="135" cy="57" r="9" fill="#ffffff" />
+                </svg>
+              </a>
+              <a href="#!">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M22 12C22 6.47714 17.5229 1.99999 12 1.99999C6.47715 1.99999 2 6.47714 2 12C2 16.9913 5.65686 21.1283 10.4375 21.8785V14.8906H7.89844V12H10.4375V9.79687C10.4375 7.29062 11.9304 5.90624 14.2146 5.90624C15.3087 5.90624 16.4531 6.10155 16.4531 6.10155V8.56249H15.1921C13.9499 8.56249 13.5625 9.33333 13.5625 10.1242V12H16.3359L15.8926 14.8906H13.5625V21.8785C18.3431 21.1283 22 16.9913 22 12Z"
+                    stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

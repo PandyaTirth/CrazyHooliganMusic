@@ -1,0 +1,73 @@
+<div class="playlistPage main">
+  <div class="pageTitle pt-4 mb-3">
+    <h1>Playlists</h1>
+  </div>
+  <div class="playlistContainer" *ngFor="let item of playlist">
+    <h3>{{ item.playlistTitle }}</h3>
+    <owl-carousel-o [options]="moodCarousel" class="playlist">
+      <ng-container>
+        <ng-template carouselSlide *ngFor="let mood of item.playlistMood">
+          <div class="thumbnail" (click)="OpenPlaylistPlayer(musicPlayer)">
+            <a>
+              <span class="playBtn">&#9658;</span>
+              <div class="overlay"></div>
+            </a>
+            <img [src]="mood.playlistImg" alt="mood.playlistTagLine" />
+          </div>
+          <h4>{{ mood.playlistTagLine }}</h4>
+          <p>{{ mood.artistName }}</p>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<ng-template #musicPlayer let-modal>
+  <div class="musicPlayer">
+    <ang-music-player [audioList]="playlistContainer"></ang-music-player>
+  </div>
+  <hr class="horizontalLine" />
+  <div class="playListSongs">
+    <table class="table table-responsive table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 60%;">Title</th>
+          <th scope="col" style="width: 30%;">Duration</th>
+          <th style="border-top-right-radius: 4px; width: 10%;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let topSong of playlistSongs" (click)="PlayNewSong(topSong)">
+          <td>
+            <div class="song d-flex flex-direction-row align-items-center gap-3">
+              <img [src]="topSong.songImg" alt="song.songTitle" height="45" width="45" />
+              <div class="songDetails">
+                <h4>
+                  {{ topSong.songTitle }}
+                </h4>
+                <p>
+                  {{ topSong.songArtist }}
+                </p>
+              </div>
+            </div>
+          </td>
+          <td style="text-align: center;">
+            <p>{{ topSong.duration }}</p>
+          </td>
+          <td>
+            <div ngbDropdown class="d-inline-block">
+              <div class="three-dots" id="songOptions" ngbDropdownToggle></div>
+              <div class="songOptions" ngbDropdownMenu aria-labelledby="songOptions">
+                <button ngbDropdownItem>Song Info</button>
+                <button ngbDropdownItem>Go to album</button>
+                <button ngbDropdownItem>Download</button>
+                <button ngbDropdownItem>Add to Queue</button>
+                <button ngbDropdownItem>Share</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

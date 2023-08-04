@@ -1,0 +1,21 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #713686;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    z-index: 2;
+
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 14px;
+    }
+
+    p {
+        @media only screen and (max-width: 768px) {
+            margin-top: 10px;
+        }
+    }
+}

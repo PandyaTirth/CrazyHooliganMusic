@@ -1,0 +1,19 @@
+<div class="artistsContainer main">
+    <div class="pageTitle artistsTitle pt-4 mb-3">
+        <h1>Genres</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let name of genres">
+            <a href="#" class="card">
+                <div class="thumbnail">
+                    <div class="overlayEffect">
+                        <span class="playBtn">&#9658; Play</span>
+                        <div class="overlay"></div>
+                    </div>
+                    <img [src]="name.genreImg" [alt]="name.genreName" />
+                </div>
+                <h4>{{ name.genreName }}</h4>
+            </a>
+        </div>
+    </div>
+</div>
